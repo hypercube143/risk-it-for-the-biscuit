@@ -1,0 +1,8 @@
+{
+	"1": {"name": "50/50 bundle", "desc": "...", "price": 0, "items": {
+		"id": "1", "count": 1,
+		"id": "2", "count": 1
+		}},
+		
+	"": {"name": "", "desc": "", "price": 0}
+}

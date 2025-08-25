@@ -1,0 +1,5 @@
+{
+	"1": {"name": "good cookie", "desc": "does good things", "icon": ""},
+	"2": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": ""},
+	"": {"name": "", "desc": "", "icon": ""}
+}
