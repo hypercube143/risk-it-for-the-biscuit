@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://0enlguqfts5p"]
+
+[ext_resource type="Script" uid="uid://cpxiodbot7g7i" path="res://shopgui.gd" id="1_u6otp"]
+[ext_resource type="Texture2D" uid="uid://cjlsgjn0ujcad" path="res://assets/art/closebutton.png" id="2_wrdio"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wrdio"]
+
+[node name="shopgui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6otp")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 88.0
+offset_bottom = 88.0
+columns = 4
+
+[node name="close_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1101.0
+offset_right = 1229.0
+offset_bottom = 128.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_wrdio")
+
+[node name="cookie_balance" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 8.0
+offset_right = 704.0
+offset_bottom = 48.0
+text = "cookie balance"
+horizontal_alignment = 1
+
+[node name="cookie_icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_right = 512.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_wrdio")
