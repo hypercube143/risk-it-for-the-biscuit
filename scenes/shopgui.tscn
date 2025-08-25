@@ -14,14 +14,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_u6otp")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 48.0
-offset_right = 88.0
-offset_bottom = 88.0
-columns = 4
-
 [node name="close_button" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1101.0
@@ -45,3 +37,15 @@ offset_left = 472.0
 offset_right = 512.0
 offset_bottom = 40.0
 texture = SubResource("PlaceholderTexture2D_wrdio")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 48.0
+offset_right = 1101.0
+offset_bottom = 648.0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1050, 500)
+layout_mode = 2
+columns = 4

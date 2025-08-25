@@ -1,7 +1,8 @@
 extends Control
 
 @onready var itemframescene = preload("res://scenes/itemframe.tscn")
-@onready var gridcontainer = $GridContainer
+@onready var gridcontainer = $ScrollContainer/GridContainer
+@onready var scrollcontainer = $ScrollContainer
 
 func _ready() -> void:
 	# display cookies in shop as 'item frames' by iterating though shop data
@@ -15,7 +16,8 @@ func _ready() -> void:
 		var items_label = item_frame.get_child(4)
 		
 		item_frame.position = Vector2(60,60)
-		gridcontainer.scale = Vector2(2,2)
+		#gridcontainer.scale = Vector2(2,2)
+		scrollcontainer.scale = Vector2(2,2)
 		
 		name_label.text = bundle_data['name']
 		buy_button.text = str(int(bundle_data['price']))

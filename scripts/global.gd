@@ -15,6 +15,12 @@ func _ready() -> void:
 	shopdat = JSON.parse_string(shopdat_f.get_as_text())
 	cookiedat_f.close()
 	shopdat_f.close()
+	
+	# fake items for testing REMOVE THIS LATER
+	for i in range(1, 20):
+		var d = shopdat['1'].duplicate()
+		d['name'] = str(int(i))
+		shopdat[str(int(i))] = d
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
