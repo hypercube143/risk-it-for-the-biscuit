@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dsh3kereaxuhi"
+path="res://.godot/imported/Project_181 (Xyelidae beach w drums).mp3-bc9b4ab0b3ee4f613d790d16333d123f.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Project_181 (Xyelidae beach w drums).mp3"
+dest_files=["res://.godot/imported/Project_181 (Xyelidae beach w drums).mp3-bc9b4ab0b3ee4f613d790d16333d123f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
