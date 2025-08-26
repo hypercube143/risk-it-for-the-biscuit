@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://0enlguqfts5p"]
 
-[ext_resource type="Script" uid="uid://cpxiodbot7g7i" path="res://shopgui.gd" id="1_u6otp"]
+[ext_resource type="Script" uid="uid://cpxiodbot7g7i" path="res://scripts/shopgui.gd" id="1_u6otp"]
 [ext_resource type="Texture2D" uid="uid://cjlsgjn0ujcad" path="res://assets/art/closebutton.png" id="2_wrdio"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wrdio"]
