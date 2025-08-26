@@ -1,5 +1,5 @@
 {
-	"1": {"name": "50/50 bundle", "desc": "...", "price": 0, "icon": "", "items": [
+	"1": {"name": "50/50 bundle", "desc": "...", "price": 1, "icon": "", "items": [
 		{"id": "1", "count": 1},
 		{"id": "2", "count": 1}
 		]},

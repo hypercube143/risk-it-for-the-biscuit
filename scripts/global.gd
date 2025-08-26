@@ -3,7 +3,7 @@ extends Node
 var cookiedat
 var shopdat
 
-var cookie_balance = 0
+var cookie_balance = 100
 
 var cookie_inventory = {}
 
@@ -20,6 +20,7 @@ func _ready() -> void:
 	for i in range(1, 20):
 		var d = shopdat['1'].duplicate()
 		d['name'] = str(int(i))
+		d['price'] = i
 		shopdat[str(int(i))] = d
 
 

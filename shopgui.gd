@@ -3,6 +3,9 @@ extends Control
 @onready var itemframescene = preload("res://scenes/itemframe.tscn")
 @onready var gridcontainer = $ScrollContainer/GridContainer
 @onready var scrollcontainer = $ScrollContainer
+@onready var cookiebalancelabel = $cookie_balance
+
+var item_frames = []
 
 func _ready() -> void:
 	# display cookies in shop as 'item frames' by iterating though shop data
@@ -28,12 +31,37 @@ func _ready() -> void:
 		items_label.text = item_frame_desc_str
 		
 		item_frame.bundle_id = shop_key
-		item_frame.item_frame_buy_button_pressed.connect(on_attempted_purchase)
+		item_frame.item_frame_buy_button_pressed.connect(on_purchase)
 		
 		gridcontainer.add_child(item_frame)
+		item_frames.append(item_frame)
+		update_buttons()
 		
-func on_attempted_purchase(bundle_id):
-	print("clicked " + bundle_id)
+func on_purchase(bundle_id):
+	# subtract price from player's cookie balance
+	var bundle = Global.shopdat[bundle_id]
+	var price = bundle['price']
+	Global.cookie_balance -= price
+	update_buttons()
+	# add cookies to inventory
+	for cookie in bundle['items']:
+		if Global.cookie_inventory.has(cookie['id']):
+			Global.cookie_inventory[cookie['id']] += cookie['count']
+		else:
+			Global.cookie_inventory[cookie['id']] = cookie['count']
+	print(Global.cookie_inventory)
+		
+	
+func update_buttons():
+	# make any itemframe that costs more than what the player has unpurchasable by disabling buttons
+	for item_frame in item_frames:
+		var button = item_frame.get_child(5)
+		if int(button.text) <= Global.cookie_balance:
+			button.disabled = false
+		else:
+			button.disabled = true
+	# update cookie_balance label too :p this is the only place it needs to update
+	cookiebalancelabel.text = str(Global.cookie_balance)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
