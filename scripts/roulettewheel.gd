@@ -8,6 +8,8 @@ extends Control
 var icon_scale = 0.25
 var icon_radius = 200
 
+var result_map = []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_wheel()
@@ -24,6 +26,8 @@ func update_wheel():
 	for child in center.get_children():
 		if child.name.begins_with("prog_icon_"):
 			child.queue_free()
+			
+	result_map.clear()
 	
 	# iterate through inventory to render ratios of each cookie count via radial progress bars
 	var start_angle = 0
@@ -46,6 +50,7 @@ func update_wheel():
 		progbar.radial_initial_angle = start_angle
 		progbar.name = "progbar_" + str(n)
 		progbar.position = Vector2(-256, -256)
+		progbar.set_meta("cookie_id", cookie_key)
 		spinnystuff.add_child(progbar)
 		
 		# display icon
@@ -61,17 +66,36 @@ func update_wheel():
 		center.add_child(icon)
 		
 		# start angle for next cookie
+		var old_start_angle = start_angle
 		start_angle += 360 * ratio
 		n += 1
 		
+		result_map.append({"start": old_start_angle, "end": start_angle, "res": cookie_key})
+		
+	print(result_map)
+		
 func spin_wheel():
-	create_tween().tween_property(spinnystuff, "rotation", deg_to_rad(randf_range(360*2,360*3)), 4)\
+	var angle = randf_range(360*2,360*3)
+	var angle_rad = deg_to_rad(angle)
+	var angle_lobotomised = int(angle-90) % 360
+	var res
+	for range in result_map:
+		if angle_lobotomised > range['start'] and angle_lobotomised <= range['end']:
+			res = range['res']
+			print(res)
+			break
+	create_tween().tween_property(spinnystuff, "rotation", angle_rad, 4)\
 	.set_trans(Tween.TRANS_SINE)\
-	.set_ease(Tween.EASE_OUT)
+	.set_ease(Tween.EASE_OUT)\
+	.finished.connect(func():
+		
+		)
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_down"):
 		spin_wheel()
 	if Input.is_action_just_pressed("ui_up"):
-		rotation = 0
+		spinnystuff.rotation = 0
