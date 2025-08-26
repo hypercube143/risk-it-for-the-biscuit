@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://ct6343pkn5keu"]
+
+[ext_resource type="Script" uid="uid://pchvwqv43uqa" path="res://scripts/roulettewheel.gd" id="1_mgffo"]
+
+[node name="roulettewheel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mgffo")
+
+[node name="center" type="Node2D" parent="."]
+position = Vector2(256, 256)

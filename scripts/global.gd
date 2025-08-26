@@ -5,7 +5,7 @@ var shopdat
 
 var cookie_balance = 100
 
-var cookie_inventory = {}
+var cookie_inventory = {"1": 2, "2": 1, "3": 4, "5": 6}
 
 func _ready() -> void:
 	# load cookie and shop dat

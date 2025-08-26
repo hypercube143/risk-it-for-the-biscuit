@@ -1,5 +1,9 @@
 {
-	"1": {"name": "good cookie", "desc": "does good things", "icon": ""},
-	"2": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": ""},
+	"1": {"name": "good cookie", "desc": "does good things", "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png"},
+	"2": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png"},
+	"3": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png"},
+	"4": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png"},
+	"5": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png"},
+	"6": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png"},
 	"": {"name": "", "desc": "", "icon": ""}
 }
