@@ -1,7 +1,9 @@
 extends Control
 
 @onready var wheelmaptexture = preload("res://assets/art/roulettewheelmap.png")
-@onready var center = $center # for rotating the cookie sprites around when generating wheel
+@onready var spinnystuff = $spinnystuff
+@onready var center = $spinnystuff/center # for rotating the cookie sprites around when generating wheel
+@onready var cursor = $cursor
 
 var icon_scale = 0.25
 var icon_radius = 200
@@ -12,10 +14,15 @@ func _ready() -> void:
 		
 func update_wheel():
 	
+	cursor.z_index = 2
+	
 	# cull any existing children >:D
-	var children = self.get_children()
+	var children = spinnystuff.get_children()
 	for child in children:
 		if child.name.begins_with("progbar_"):
+			child.queue_free()
+	for child in center.get_children():
+		if child.name.begins_with("prog_icon_"):
 			child.queue_free()
 	
 	# iterate through inventory to render ratios of each cookie count via radial progress bars
@@ -33,11 +40,13 @@ func update_wheel():
 		var progbar = TextureProgressBar.new()
 		progbar.fill_mode = TextureProgressBar.FillMode.FILL_CLOCKWISE
 		progbar.texture_progress = wheelmaptexture
-		progbar.tint_progress = Color(255,0,0) if n % 2 == 0 else Color(0,0,255) # alternate
+		# progbar.tint_progress = Color(255,0,0) if n % 2 == 0 else Color(0,0,255) # alternate
+		progbar.tint_progress = Color(Global.cookiedat[cookie_key]['wheel_colour'])
 		progbar.value = percent
 		progbar.radial_initial_angle = start_angle
 		progbar.name = "progbar_" + str(n)
-		add_child(progbar)
+		progbar.position = Vector2(-256, -256)
+		spinnystuff.add_child(progbar)
 		
 		# display icon
 		var icon_texture = load(Global.cookiedat[cookie_key]['icon'])
@@ -54,8 +63,15 @@ func update_wheel():
 		# start angle for next cookie
 		start_angle += 360 * ratio
 		n += 1
+		
+func spin_wheel():
+	create_tween().tween_property(spinnystuff, "rotation", deg_to_rad(randf_range(360*2,360*3)), 4)\
+	.set_trans(Tween.TRANS_SINE)\
+	.set_ease(Tween.EASE_OUT)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_down"):
-		print(get_local_mouse_position())
+		spin_wheel()
+	if Input.is_action_just_pressed("ui_up"):
+		rotation = 0
