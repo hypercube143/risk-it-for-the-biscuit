@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0enlguqfts5p"]
+[gd_scene load_steps=5 format=3 uid="uid://0enlguqfts5p"]
 
 [ext_resource type="Script" uid="uid://cpxiodbot7g7i" path="res://scripts/shopgui.gd" id="1_u6otp"]
 [ext_resource type="Texture2D" uid="uid://cjlsgjn0ujcad" path="res://assets/art/closebutton.png" id="2_wrdio"]
+[ext_resource type="PackedScene" uid="uid://ct6343pkn5keu" path="res://scenes/roulettewheel.tscn" id="3_ireye"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wrdio"]
 
@@ -48,4 +49,11 @@ offset_bottom = 648.0
 [node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
 custom_minimum_size = Vector2(1050, 500)
 layout_mode = 2
-columns = 4
+columns = 2
+
+[node name="roulettewheel" parent="." instance=ExtResource("3_ireye")]
+anchors_preset = 0
+offset_left = 859.0
+offset_top = 323.0
+offset_right = 1371.0
+offset_bottom = 835.0

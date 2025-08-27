@@ -5,6 +5,8 @@ extends Control
 @onready var scrollcontainer = $ScrollContainer
 @onready var cookiebalancelabel = $cookie_balance
 
+@onready var roulettewheel = $roulettewheel
+
 var item_frames = []
 
 func _ready() -> void:
@@ -49,7 +51,8 @@ func on_purchase(bundle_id):
 			Global.cookie_inventory[cookie['id']] += cookie['count']
 		else:
 			Global.cookie_inventory[cookie['id']] = cookie['count']
-	print(Global.cookie_inventory)
+	
+	roulettewheel.update_wheel()
 		
 	
 func update_buttons():

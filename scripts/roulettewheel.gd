@@ -67,14 +67,13 @@ func update_wheel():
 		icon.rotation = mid + PI * 0.5
 		center.add_child(icon)
 	
-		# for debugging
-		#var t = Label.new()
-		#t.text = str(cookie_key)
-		#t.scale = Vector2(2,2)
-		#t.position = Vector2(icon_radius, 0).rotated(mid)
-		#t.rotation = mid + PI * 0.5
-		#t.z_index = 3
-		#center.add_child(t)
+		var t = Label.new()
+		t.text = "x" + str(int(Global.cookie_inventory[cookie_key]))
+		t.scale = Vector2(2,2)
+		t.position = Vector2(icon_radius, 0).rotated(mid)
+		# t.rotation = mid # + PI * 0.5
+		t.z_index = 3
+		center.add_child(t)
 		
 		# start angle for next cookie
 		var old_start_angle = start_angle
@@ -97,6 +96,12 @@ func spin_wheel():
 	.set_trans(Tween.TRANS_SINE)\
 	.set_ease(Tween.EASE_OUT)\
 	.finished.connect(on_spin_finished)
+	
+	for t in center.get_children():
+		if t.name.begins_with("@Label"):
+			create_tween().tween_property(t, "rotation", -angle_rad, 2)\
+			.set_trans(Tween.TRANS_SINE)\
+			.set_ease(Tween.EASE_OUT)
 	
 func on_spin_finished():
 	var chosen_cookie_id = pick_slice_from_cursor()
@@ -140,19 +145,11 @@ func pick_slice_from_cursor():
 	var wheel_deg = fposmod(rad_to_deg(spinnystuff.rotation), 360.0)
 	var selection_deg = fposmod(cursor_deg - wheel_deg, 360.0)
 	
-	print(result_map)
-	print(selection_deg)
-	
 	for range in result_map:
 		var s = fposmod(range['start'], 360.0)
 		var e = fposmod(range['end'], 360.0)
 		if s > e or (s == 0 and e == 0):
 			e = 360
-	
-		print(s)
-		print(e)
-		print(selection_deg)
-		print()
 		if s <= selection_deg and selection_deg <= e:
 			return range['res']
 	
