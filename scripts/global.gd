@@ -20,6 +20,9 @@ func _ready() -> void:
 	for i in range(1, 20):
 		var d = shopdat['1'].duplicate()
 		d['name'] = str(int(i))
+		d['items'] = []
+		for x in range(randf_range(1, 4)):
+			d['items'].append({"id": str(int(randf_range(1,6))), "count": randf_range(1,10)})
 		d['price'] = i
 		shopdat[str(int(i))] = d
 

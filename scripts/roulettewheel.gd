@@ -92,15 +92,15 @@ func spin_wheel():
 		#if angle_lobotomised > range['start'] and angle_lobotomised <= range['end']:
 			#res = range['res']
 			#break
-	create_tween().tween_property(spinnystuff, "rotation", angle_rad, 2)\
-	.set_trans(Tween.TRANS_SINE)\
+	create_tween().tween_property(spinnystuff, "rotation", angle_rad, 3)\
+	.set_trans(Tween.TRANS_CIRC)\
 	.set_ease(Tween.EASE_OUT)\
 	.finished.connect(on_spin_finished)
 	
 	for t in center.get_children():
 		if t.name.begins_with("@Label"):
-			create_tween().tween_property(t, "rotation", -angle_rad, 2)\
-			.set_trans(Tween.TRANS_SINE)\
+			create_tween().tween_property(t, "rotation", -angle_rad, 3)\
+			.set_trans(Tween.TRANS_CIRC)\
 			.set_ease(Tween.EASE_OUT)
 	
 func on_spin_finished():
@@ -146,6 +146,7 @@ func pick_slice_from_cursor():
 	var selection_deg = fposmod(cursor_deg - wheel_deg, 360.0)
 	
 	for range in result_map:
+		# hell
 		var s = fposmod(range['start'], 360.0)
 		var e = fposmod(range['end'], 360.0)
 		if s > e or (s == 0 and e == 0):

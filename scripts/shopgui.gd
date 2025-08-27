@@ -19,6 +19,10 @@ func _ready() -> void:
 		var name_label = item_frame.get_child(2)
 		var buy_button = item_frame.get_child(5)
 		var items_label = item_frame.get_child(4)
+		var icon_texture_rect = item_frame.get_child(1)
+		
+		icon_texture_rect.texture = load(Global.shopdat[shop_key]['icon'])
+		icon_texture_rect.scale = Vector2(0.25,0.25)
 		
 		item_frame.position = Vector2(60,60)
 		#gridcontainer.scale = Vector2(2,2)
