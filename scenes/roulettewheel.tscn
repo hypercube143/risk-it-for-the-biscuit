@@ -20,6 +20,6 @@ offset = Vector2(0, -256)
 [node name="center" type="Node2D" parent="spinnystuff"]
 
 [node name="cursor" type="Sprite2D" parent="."]
-position = Vector2(-1, 269)
+position = Vector2(0, 270)
 scale = Vector2(0.173828, 0.173828)
 texture = ExtResource("2_mgffo")
