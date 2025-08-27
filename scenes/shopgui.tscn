@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://0enlguqfts5p"]
+
+[ext_resource type="Script" uid="uid://cpxiodbot7g7i" path="res://scripts/shopgui.gd" id="1_u6otp"]
+[ext_resource type="Texture2D" uid="uid://c364tucuat28i" path="res://assets/art/shopbg.png" id="2_co26w"]
+[ext_resource type="Texture2D" uid="uid://cjlsgjn0ujcad" path="res://assets/art/closebutton.png" id="2_wrdio"]
+[ext_resource type="PackedScene" uid="uid://ct6343pkn5keu" path="res://scenes/roulettewheel.tscn" id="3_ireye"]
+[ext_resource type="Texture2D" uid="uid://be46mdyxvv01i" path="res://assets/art/cookie_balance_bar.png" id="4_p7rwh"]
+[ext_resource type="Texture2D" uid="uid://7rplx61k1gxb" path="res://assets/art/cookie sprites/cookie_regular.png" id="4_wxrt1"]
+
+[sub_resource type="Theme" id="Theme_jxtlk"]
+
+[node name="shopgui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6otp")
+
+[node name="bg_texture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_co26w")
+
+[node name="close_button" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1101.0
+offset_right = 1229.0
+offset_bottom = 128.0
+scale = Vector2(0.4, 0.4)
+texture_normal = ExtResource("2_wrdio")
+
+[node name="cookie_balance_bar" type="Sprite2D" parent="."]
+position = Vector2(572.56, 23)
+scale = Vector2(0.267344, 0.23)
+texture = ExtResource("4_p7rwh")
+
+[node name="cookie_icon" type="Sprite2D" parent="."]
+position = Vector2(493, 22)
+scale = Vector2(0.0820313, 0.0820313)
+texture = ExtResource("4_wxrt1")
+
+[node name="cookie_balance" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 8.0
+offset_right = 704.0
+offset_bottom = 35.0
+theme = SubResource("Theme_jxtlk")
+text = "cookie balance"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 48.0
+offset_right = 1101.0
+offset_bottom = 648.0
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(1050, 500)
+layout_mode = 2
+columns = 2
+
+[node name="roulettewheel" parent="." instance=ExtResource("3_ireye")]
+anchors_preset = 0
+offset_left = 859.0
+offset_top = 323.0
+offset_right = 1371.0
+offset_bottom = 835.0

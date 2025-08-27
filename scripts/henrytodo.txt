@@ -1,0 +1,11 @@
+todo
+
+backlog:
+- system keeping track of player's brought cookies
+- roulette wheel
+
+doing:
+- shop system
+
+done:
+- 

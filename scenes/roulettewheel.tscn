@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct6343pkn5keu"]
+
+[ext_resource type="Script" uid="uid://pchvwqv43uqa" path="res://scripts/roulettewheel.gd" id="1_mgffo"]
+[ext_resource type="Texture2D" uid="uid://bwdmqunn7rksx" path="res://assets/art/cookie sprites/cursor.png" id="2_mgffo"]
+
+[node name="roulettewheel" type="Control"]
+layout_mode = 3
+offset_right = 512.0
+offset_bottom = 512.0
+pivot_offset = Vector2(256, 256)
+script = ExtResource("1_mgffo")
+
+[node name="spinnystuff" type="Node2D" parent="."]
+
+[node name="center" type="Node2D" parent="spinnystuff"]
+
+[node name="cursor" type="Sprite2D" parent="."]
+position = Vector2(0, 270)
+scale = Vector2(0.173828, 0.173828)
+texture = ExtResource("2_mgffo")
