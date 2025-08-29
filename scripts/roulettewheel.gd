@@ -8,7 +8,7 @@ signal cookie_choosen
 @onready var center = $spinnystuff/center # for rotating the cookie sprites around when generating wheel
 @onready var cursor = $cursor
 
-var icon_scale = 0.25
+var icon_scale = 1/6.0
 var icon_radius = 200
 
 var result_map = []
@@ -69,6 +69,8 @@ func update_wheel():
 	
 		var t = Label.new()
 		t.text = "x" + str(int(Global.cookie_inventory[cookie_key]))
+		# t.label_settings.outline_size = 3
+		t.modulate = Color(0, 0, 0)
 		t.scale = Vector2(2,2)
 		t.position = Vector2(icon_radius, 0).rotated(mid)
 		# t.rotation = mid # + PI * 0.5
