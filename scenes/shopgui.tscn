@@ -65,7 +65,6 @@ layout_mode = 2
 columns = 2
 
 [node name="roulettewheel" parent="." instance=ExtResource("3_ireye")]
-anchors_preset = 0
 offset_left = 859.0
 offset_top = 323.0
 offset_right = 1371.0
