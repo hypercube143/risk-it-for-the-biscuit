@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://quodagbu6hqk"]
+
+[ext_resource type="Script" uid="uid://bt4htg5blhwfb" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_l6cm7")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 291.0
+offset_right = 636.0
+offset_bottom = 474.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 491.0
+offset_right = 623.0
+offset_bottom = 562.0
+theme_override_font_sizes/font_size = 30
+text = "quit"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]

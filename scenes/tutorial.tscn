@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8v2byj1o3qgl"]
+
+[ext_resource type="Script" uid="uid://lrslweu7wrxo" path="res://scripts/tutorial.gd" id="1_c13y7"]
+[ext_resource type="PackedScene" uid="uid://1q0hmsymuik4" path="res://scenes/player.tscn" id="2_8ho6b"]
+[ext_resource type="PackedScene" uid="uid://dro6mq8lctw84" path="res://scenes/player_hud.tscn" id="3_ph3nu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8ho6b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ph3nu"]
+viewport_path = NodePath("SubViewport")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_c13y7")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="Player" parent="SubViewport" instance=ExtResource("2_8ho6b")]
+
+[node name="Tutorial" type="Node" parent="SubViewport"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewport/Tutorial"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewport/Tutorial/StaticBody2D"]
+position = Vector2(542, 578)
+shape = SubResource("WorldBoundaryShape2D_8ho6b")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("ViewportTexture_ph3nu")
+stretch_mode = 5
+
+[node name="Shop" parent="." instance=ExtResource("3_ph3nu")]
