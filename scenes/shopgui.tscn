@@ -25,9 +25,9 @@ texture = ExtResource("2_co26w")
 [node name="close_button" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 1101.0
-offset_right = 1229.0
-offset_bottom = 128.0
-scale = Vector2(0.4, 0.4)
+offset_right = 1613.0
+offset_bottom = 512.0
+scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("2_wrdio")
 
 [node name="cookie_balance_bar" type="Sprite2D" parent="."]
@@ -68,3 +68,5 @@ offset_left = 859.0
 offset_top = 323.0
 offset_right = 1371.0
 offset_bottom = 835.0
+
+[connection signal="pressed" from="close_button" to="." method="_on_close_button_pressed"]

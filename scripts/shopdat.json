@@ -1,6 +1,21 @@
 {
-	"1": {"name": "50/50 bundle", "desc": "...", "price": 1, "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png", "items": [
+	"1": {"name": "Jump/Reverse", "desc": "...", "price": 5, "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png", "items": [
 		{"id": "1", "count": 1},
 		{"id": "2", "count": 1}
+		]},
+		
+	"2": {"name": "Teleport/Shrink", "desc": "...", "price": 5, "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png", "items": [
+		{"id": "4", "count": 1},
+		{"id": "7", "count": 1}
+		]},
+		
+	"3": {"name": "Noclip/Lava", "desc": "...", "price": 5, "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png", "items": [
+		{"id": "5", "count": 1},
+		{"id": "6", "count": 1}
+		]},
+		
+	"4": {"name": "Fast/Slow", "desc": "...", "price": 5, "icon": "res://assets/art/cookie sprites/cookietextureplaceholder.png", "items": [
+		{"id": "3", "count": 1},
+		{"id": "8", "count": 1}
 		]},
 }

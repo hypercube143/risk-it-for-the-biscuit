@@ -8,8 +8,8 @@ signal cookie_choosen
 @onready var center = $spinnystuff/center # for rotating the cookie sprites around when generating wheel
 @onready var cursor = $cursor
 
-var icon_scale = 1/6.0
-var icon_radius = 200
+var icon_scale = 1/4.0
+var icon_radius = 150
 
 var result_map = []
 

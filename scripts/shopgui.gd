@@ -1,5 +1,7 @@
 extends Control
 
+signal shopgui_close_button_pressed
+
 @onready var itemframescene = preload("res://scenes/itemframe.tscn")
 @onready var gridcontainer = $ScrollContainer/GridContainer
 @onready var scrollcontainer = $ScrollContainer
@@ -21,7 +23,7 @@ func _ready() -> void:
 		var items_label = item_frame.get_child(4)
 		var icon_texture_rect = item_frame.get_child(1)
 		
-		icon_texture_rect.texture = load(Global.shopdat[shop_key]['icon'])
+		#icon_texture_rect.texture = load(Global.shopdat[shop_key]['icon'])
 		icon_texture_rect.scale = Vector2(0.25,0.25)
 		
 		item_frame.position = Vector2(60,60)
@@ -31,9 +33,18 @@ func _ready() -> void:
 		name_label.text = bundle_data['name']
 		buy_button.text = str(int(bundle_data['price']))
 		var item_frame_desc_str = ""
+		var x_mod = 50
+		var y_mod = 100
 		for item in bundle_data['items']:
 			var cookie = Global.cookiedat[item['id']]
 			item_frame_desc_str += str(int(item['count'])) + "x " + cookie['name'] + "\n"
+			var sprite2d = Sprite2D.new()
+			sprite2d.texture = load(cookie['icon'])
+			sprite2d.scale = Vector2(0.5, 0.5)
+			sprite2d.position = Vector2(x_mod, y_mod)
+			icon_texture_rect.add_child(sprite2d)
+			x_mod += 150
+			y_mod += 75
 		items_label.text = item_frame_desc_str
 		
 		item_frame.bundle_id = shop_key
@@ -68,8 +79,12 @@ func update_buttons():
 		else:
 			button.disabled = true
 	# update cookie_balance label too :p this is the only place it needs to update
-	cookiebalancelabel.text = str(Global.cookie_balance)
+	cookiebalancelabel.text = str(int(Global.cookie_balance))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_close_button_pressed() -> void:
+	emit_signal("shopgui_close_button_pressed")

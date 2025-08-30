@@ -1,9 +1,13 @@
 {
-	"1": {"name": "good cookie", "desc": "does good things", "icon": "res://assets/art/cookie sprites/cookie_regular.png", "wheel_colour": "#4287f5"},
-	"2": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/buybuttongreen.png", "wheel_colour": "#9542f5"},
-	"3": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookie_regular.png", "wheel_colour": "#f542ef"},
-	"4": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookie_regular.png", "wheel_colour": "#f5427b"},
-	"5": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookie_regular.png", "wheel_colour": "#f54242"},
-	"6": {"name": "bad cookie", "desc": "does bad things, bad to the bone", "icon": "res://assets/art/cookie sprites/cookie_regular.png", "wheel_colour": "#f57542"},
-	"": {"name": "", "desc": "", "icon": ""}
+	"1": {"name": "Double-Jump Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_double_jump.png", "wheel_colour": "#4287f5"},
+	"2": {"name": "Reverse Controls Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_reverse_controls.png", "wheel_colour": "#f03737"},
+	
+	"3": {"name": "Speed Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_speed.png", "wheel_colour": "#ccfffe"},
+	"4": {"name": "Random Teleportation Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_teleport.png", "wheel_colour": "#45ff61"},
+	
+	"5": {"name": "Noclip Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_noclip.png", "wheel_colour": "#fcff45"},
+	"6": {"name": "Rising Lava Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_rising_lava.png", "wheel_colour": "#ff8f0f"},
+	
+	"7": {"name": "Shortbread Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_shortbread.png", "wheel_colour": "#ecf28f"},
+	"8": {"name": "Slowness Cookie", "desc": "", "icon": "res://assets/art/cookie sprites/cookie_slowness.png", "wheel_colour": "#0c3d37"},
 }
